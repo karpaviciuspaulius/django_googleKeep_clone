@@ -1,0 +1,36 @@
+{% extends 'notes/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <article class="media content-section">
+        <div class="media-body">
+          <h2 class="article-title">{{ object.title }}</h2>
+          <p class="article-content">{{ object.content }}</p>
+          <div class="article-metadata text-center w-100">
+            <p>{{id}}</p>
+            {% if object.image %}
+              <img class="rounded-circle account-img" src="{{ object.image.url }}">
+            {% endif %}
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <fieldset class="form-group">
+                  {{ n_form|crispy }}
+              </fieldset>
+              <small class="text-muted">
+                Categories: 
+                {% for category in note.categories.all %}
+                   | {{ category }} |
+                {% endfor %}
+              </small>
+              <br>
+            <small class="text-muted">Date created: {{ object.date_created|date:"F d, Y"}}</small>
+            <br>
+            <div class="mt-3">
+            {% if object.author == user %}
+              <a class="btn btn-secondary btn-sm mt- mb-1" href="{% url 'note-update' object.id %}">Update</a>
+              <a class="btn btn-danger btn-sm mb-1" href="{% url 'note-delete' object.id %}">Delete</a>
+            {% endif %}
+            </div>
+          </div>
+        </div>
+      </article>
+{% endblock content %}

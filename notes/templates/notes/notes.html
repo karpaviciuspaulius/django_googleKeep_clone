@@ -1,0 +1,42 @@
+
+{% extends 'notes/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="card card-body">
+      <h4>Search bar</h4>
+      <form method='get'>
+        {{ myFilter.form.as_p }}
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </br>
+  <div class="d-flex flex-wrap justify-content-around">
+    {% for note in notes %}
+    <article class="media content-section col-5">
+        <div class="media-body">
+          <h3><a class="article-title" href="{% url 'note-detail' note.id %}">{{ note.title }}</a></h3>
+          <p class="article-content"><small class="text-muted">{{ note.content }}</small></p>
+          <div class="article-metadata">
+            <p>{{id}}</p>
+            {% if note.image%}
+              <img class="rounded account-img" src="{{ note.image.url }}">
+            {% endif %}
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <fieldset class="form-group">
+                  {{ n_form|crispy }}
+              </fieldset>
+              <small class="text-muted">
+                Categories: 
+                {% for category in note.categories.all %}
+                | <span style="color: #017BFF">{{ category }}</span> |
+                {% endfor %}
+              </small>
+            <br>
+            <small class="text-muted">Date created: <span style="color: #017BFF">{{ note.date_created|date:"F d, Y"}}</span></small>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+    </div>
+{% endblock content %}

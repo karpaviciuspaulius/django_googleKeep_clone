@@ -1,0 +1,20 @@
+{% extends 'notes/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <article class="media content-section">
+        <div class="media-body">
+          <h2 class="article-title">{{ object.name }}</h2>
+          <div class="article-metadata text-center w-100">
+            <form method="POST">
+              {% csrf_token %}
+              <fieldset class="form-group">
+                  {{ n_form|crispy }}
+              </fieldset>  
+            {% if object.author == user %}
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'group-update' object.id %}">Update</a>
+              <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'group-delete' object.id %}">Delete</a>
+            {% endif %}
+          </div>
+        </div>
+      </article>
+{% endblock content %}

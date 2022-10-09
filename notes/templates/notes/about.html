@@ -1,0 +1,53 @@
+{% extends 'notes/base.html' %}
+{% block content %}
+    <h3> Assignment description</h3>
+    <p>Šios projekto metu reikės sukurti Užrašinės programą naudojant Django arba Flask ir SQLite arba MySQL. Projekto tikslas - leisti registruotiems varotojamas kurti ir saugoti užrašus, priskirti juos į tam tikras kategorijas. Galite įsivaizduoti kažką panašaus į https://keep.google.com/, tik supaprastintą versiją.</p>
+
+        Funkcionalumas:
+        <ol>
+            <li>Registruotis</li>
+            <li>Prisijungti</li>
+            <li>Sukurti naują kategoriją (tik prisijungus)</li>
+            <li>Redaguoti kategoriją (tik prisijungus)</li>
+            <li>Ištrinti kategoriją (tik prisijungus)</li>
+            <li>Sukurti naują užrašą (tik prisijungus)</li>
+            <li>Užrašas turėtų turėti pavadinimą ir užrašo tekstą</li>
+            <li>Taip pat, turėtų būti galimybė prie užrašo pridėti nuotraukas</li>
+            <li>Leistų priskirti užrašą tam tikrai kategorijai</li>
+            <li>Redaguoti užrašą (tik prisijungus)</li>
+            <li>Ištrinti užrašą (tik prisijungus)</li>
+            <li>Leisti ieškoti užrašus pagal pavadinimą (tik prisijungus)</li>
+            <li>Leisti filtruoti užrašus pagal užrašo kategoriją (tik prisijungus)</li>
+        </ol>
+        <h4>### Backend'as</h4>
+        
+        <h5>#### Duomenų bazė</h5>
+        
+        <p>Duomenų bazė turėtų saugoti visą informaciją - užrašus, kategorijas vartotojus, ir bet kokią kitą informaciją kurios prireiktų. Jeigu naudojate MySQL duomenų bazę būtina sukurti sąryšius tarp lentelių ir naudoti "Primary Key" bei "Foreign Key" apribojimus.</p>
+        
+        <h5>### Frontend'as</h5>
+        
+        <p>Frontend'as neturi nustatyto dizaino vaizdo (angl. wireframes), kurį reikia atkartoti. Tačiau jum tenka sunkesnė užduotis - patiems sugalvoti ir sukurti puslapio dizainą. Svarbiausia išpildyti visus funkcinius reikalavimus ir validuoti vartotojo įvestį.<p>
+        
+        <h4>Užduoties įkėlimo instrukcijos</h4>
+        
+        Instrukcijas, kaip valdyti GitHub repozitorijas rasite - https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories arba step-by-step žemiau.
+        <br>
+        1. Sukurti GitHub repozitoriją.
+        
+        Instrukcijas, kaip susikurti GitHub repozitoriją rasite - https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository
+        <br>
+        2. Pakeitimus daryti atskiroje šakoje (pvz. dev), kad būtų galima sukurti Pull Request.
+        <br>
+        Kaip galima sukurti Pull Request galite sužinoti čia - https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
+        
+        Naują šaką galima susikurti įvykdžius `git checkout -b dev` komandą terminale.
+        <br>
+        3. Kuriant sistemą pakeitimus nuolatos saugoti su pakeitimus su prasmingomis "commit" žinutėmis.
+        <br>
+        4. Pabaigus projektą patikrinti ar visi pakeitimai yra nusiųsti į GitHub, sukurti Pull Request per GitHub puslapį į pagrindinę šaką (`main` arba `master`) ir pateikti nuorodą šiame "assignment".
+        <br>
+        Jeigu to padaryti nepavyks galite tiesiog įkelti archyvuotus failus.
+        <br>
+        Sėkmės!
+{% endblock content %}

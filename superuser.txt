@@ -1,0 +1,4 @@
+To access website use super user:
+
+id: PauliusKa
+psw: testing321
